@@ -84,7 +84,7 @@ export class TB303  {
         
     get drive() { return this._distortion.distortion; }
     set drive(value) {
-      if (value < 0 || value > 1) throw "Drive must be between 0 and 1";
+      if (value < 0 || value > 1.2) throw "Drive must be between 0 and 1.2";
       this._distortion.distortion = value;
     }
         
