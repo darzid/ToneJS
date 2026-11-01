@@ -198,6 +198,20 @@ export class TR909Snare {
     }
     
     get name() { return "DAWSome.TR909Snare"}
+    
+    get detune() { return this.bodySynth.detune; }
+    set detune(value) { 
+      if (value < 0.001 || value > 1.2) throw "Detune must be between -1200 and 1200";
+      this.bodySynth.detune.value = value; 
+    }
+    
+    get decay() { return this.noiseSynth.envelope.decay; }
+    set decay(value) { 
+      if (value < 0.001 || value > 1.2) throw "Decay must be between 0.001 and 1.2";
+      this.noiseSynth.envelope.decay.value = value; 
+      this.bodySynth.envelope.decay.value = value + 0.03; 
+    }
+    
     get volume() { return this.output.volume; }
     set volume(value) {
       if (value < -100 || value > 0) throw "Volume must be between -100 and 0";
