@@ -205,11 +205,11 @@ export class TR909Snare {
       this.bodySynth.detune.value = value; 
     }
     
-    get decay() { return this.noiseSynth.envelope.decay.value; }
+    get decay() { return this.noiseSynth.envelope.decay; }
     set decay(value) { 
       if (value < 0.001 || value > 1.2) throw "Decay must be between 0.001 and 1.2";
-      this.noiseSynth.envelope.decay.value = value; 
-      this.bodySynth.envelope.decay.value = value + 0.03; 
+      this.noiseSynth.envelope.decay = value; 
+      this.bodySynth.envelope.decay = value + 0.03; 
     }
     
     get volume() { return this.output.volume; }
